@@ -2,9 +2,12 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 // import { requireActor } from "../_lib/auth/requireActor";
 // import { db } from "../_lib/db/client";
 // import { observations, recommendations } from "../_lib/db/schema";
-import { requireActor } from "../_lib/auth/requireActor";
-import { db } from "../_lib/db/client";
-import { observations, recommendations } from "../_lib/db/schema";
+// import { requireActor } from "../_lib/auth/requireActor";
+// import { db } from "../_lib/db/client";
+// import { observations, recommendations } from "../_lib/db/schema";
+import { requireActor } from "../_lib/auth/requireActor.js";
+import { db } from "../_lib/db/client.js";
+import { observations, recommendations } from "../_lib/db/schema.js";
 import { eq, desc } from "drizzle-orm";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {

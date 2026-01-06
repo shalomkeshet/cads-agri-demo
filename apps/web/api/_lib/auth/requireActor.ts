@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getActor } from "./getActor";
+// import { getActor } from "./getActor";
+import { getActor } from "./getActor.js";
 
 export async function requireActor(req: VercelRequest, res: VercelResponse) {
   const actor = await getActor(req);

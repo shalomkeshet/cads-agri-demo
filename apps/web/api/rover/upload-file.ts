@@ -1,8 +1,12 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { put } from "@vercel/blob";
-import { requireActor } from "../_lib/auth/requireActor";
-import { db } from "../_lib/db/client";
-import { observations } from "../_lib/db/schema";
+// import { requireActor } from "../_lib/auth/requireActor";
+// import { db } from "../_lib/db/client";
+// import { observations } from "../_lib/db/schema";
+import { requireActor } from "../_lib/auth/requireActor.js";
+import { db } from "../_lib/db/client.js";
+import { observations } from "../_lib/db/schema.js";
+
 
 export const config = {
   api: { bodyParser: false },
