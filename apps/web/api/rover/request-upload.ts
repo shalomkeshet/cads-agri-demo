@@ -1,7 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { handleUpload } from "@vercel/blob/client";
-// import { requireActor } from "@auth/requireActor";
-// import { requireActor } from "../_lib/auth/requireActor";
 import { requireActor } from "../_lib/auth/requireActor.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -10,10 +8,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const actor = await requireActor(req, res);
   if (!actor) return;
 
+  // Ensure body is an object (Vercel sometimes gives string)
+  let body: any = req.body;
+
+  if (typeof req.body === "string") {
+    try {
+      body = JSON.parse(req.body);
+    } catch {
+      return res.status(400).json({ error: "Invalid JSON body" });
+    }
+  }
+
   try {
     const response = await handleUpload({
       request: req,
-      body: req.body,
+      body,
       onBeforeGenerateToken: async () => {
         return {
           allowedContentTypes: ["image/jpeg", "image/png", "image/webp"],
