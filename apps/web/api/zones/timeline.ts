@@ -1,9 +1,7 @@
-// import type { VercelRequest, VercelResponse } from "@vercel/node";
-// import { requireActor } from "../../../packages/auth/requireActor";
-// import { db } from "../../../packages/db/client";
-// import { observations, recommendations } from "../../../packages/db/schema";
-// import { eq, desc } from "drizzle-orm";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+// import { requireActor } from "../_lib/auth/requireActor";
+// import { db } from "../_lib/db/client";
+// import { observations, recommendations } from "../_lib/db/schema";
 import { requireActor } from "../_lib/auth/requireActor";
 import { db } from "../_lib/db/client";
 import { observations, recommendations } from "../_lib/db/schema";

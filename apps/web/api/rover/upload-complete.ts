@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { requireActor } from "@auth/requireActor";
+// import { requireActor } from "@auth/requireActor";
+import { requireActor } from "../_lib/auth/requireActor";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).end();
