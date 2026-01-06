@@ -8,7 +8,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const actor = await requireActor(req, res);
   if (!actor) return;
 
-  // Ensure body is an object (Vercel sometimes gives string)
   let body: any = req.body;
 
   if (typeof req.body === "string") {
@@ -17,6 +16,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } catch {
       return res.status(400).json({ error: "Invalid JSON body" });
     }
+  }
+
+  // Important: support both "eventType" and "type"
+  if (body?.eventType && !body?.type) {
+    body.type = body.eventType;
+    delete body.eventType;
   }
 
   try {
