@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.16",
+    "@vercel/blob": "^2.0.0",
+    "cookie": "^1.1.1",
+    "drizzle-orm": "^0.45.1",
+    "pg": "^8.16.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0",
@@ -21,6 +25,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.5.16",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",

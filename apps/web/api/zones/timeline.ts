@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { requireActor } from "../../packages/auth/requireActor";
-import { db } from "../../packages/db/client";
-import { observations, recommendations } from "../../packages/db/schema";
+import { requireActor } from "../../../packages/auth/requireActor";
+import { db } from "../../../packages/db/client";
+import { observations, recommendations } from "../../../packages/db/schema";
 import { eq, desc } from "drizzle-orm";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {

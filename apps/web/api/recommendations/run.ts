@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { requireActor } from "../../packages/auth/requireActor";
-import { db } from "../../packages/db/client";
-import { recommendations } from "../../packages/db/schema";
-import { generateDCI } from "../../packages/dci-engine/generate";
+import { requireActor } from "../../../packages/auth/requireActor";
+import { db } from "../../../packages/db/client";
+import { recommendations } from "../../../packages/db/schema";
+import { generateDCI } from "../../../packages/dci-engine/generate";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).end();
