@@ -1,8 +1,13 @@
+// import type { VercelRequest, VercelResponse } from "@vercel/node";
+// import { requireActor } from "../../../packages/auth/requireActor";
+// import { put } from "@vercel/blob";
+// import { db } from "../../../packages/db/client";
+// import { observations } from "../../../packages/db/schema";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { requireActor } from "../../../packages/auth/requireActor";
+import { requireActor } from "../_lib/auth/requireActor";
 import { put } from "@vercel/blob";
-import { db } from "../../../packages/db/client";
-import { observations } from "../../../packages/db/schema";
+import { db } from "../_lib/db/client";
+import { observations } from "../_lib/db/schema";
 
 export const config = {
   api: { bodyParser: false },
