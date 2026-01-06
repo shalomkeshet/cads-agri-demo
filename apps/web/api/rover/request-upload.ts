@@ -1,33 +1,31 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { put } from "@vercel/blob";
-import { requireActor } from "../../../packages/auth/requireActor";
+import { handleUpload } from "@vercel/blob/client";
+import { requireActor } from "@auth/requireActor";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).end();
 
-  // ✅ must be logged in (demo cookie)
   const actor = await requireActor(req, res);
   if (!actor) return;
 
-  const { filename, contentType } = req.body || {};
-  if (!filename || !contentType) {
-    return res.status(400).json({ error: "filename + contentType required" });
-  }
-
   try {
-    // ✅ Create a signed upload URL
-    const blob = await put(`rover-scans/${Date.now()}-${filename}`, {
-      access: "public",
-      contentType,
+    const response = await handleUpload({
+      request: req,
+      body: req.body,
+      onBeforeGenerateToken: async () => {
+        return {
+          allowedContentTypes: ["image/jpeg", "image/png", "image/webp"],
+          tokenPayload: JSON.stringify({ demoId: actor.demoId }),
+        };
+      },
+      onUploadCompleted: async ({ blob }) => {
+        console.log("Upload completed:", blob.url);
+      },
     });
 
-    return res.status(200).json({
-      uploadUrl: blob.uploadUrl,
-      pathname: blob.pathname,
-      url: blob.url,
-    });
-  } catch (err) {
-    console.error("request-upload error:", err);
-    return res.status(500).json({ error: "Failed to create upload URL" });
+    return res.status(200).json(response);
+  } catch (error) {
+    console.error("request-upload error:", error);
+    return res.status(400).json({ error: (error as Error).message });
   }
 }

@@ -1,37 +1,29 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "../../",
+    "baseUrl": ".",
     "paths": {
-      "@auth/*": ["packages/auth/*"],
-      "@db/*": ["packages/db/*"],
-      "@dci/*": ["packages/dci-engine/*"],
-      "@shared/*": ["packages/shared/*"]
+      "@auth/*": ["api/_lib/auth/*"],
+      "@db/*": ["api/_lib/db/*"],
+      "@dci/*": ["api/_lib/dci/*"]
     },
 
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.api.tsbuildinfo",
     "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ES2022"],
 
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "verbatimModuleSyntax": false,
+    "resolveJsonModule": true,
 
-    "types": ["vite/client"],
+    "types": ["node"],
     "skipLibCheck": true,
 
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
-
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUnusedParameters": true
   },
-  "include": ["src"]
+  "include": ["api"]
 }

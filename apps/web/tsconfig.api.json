@@ -1,22 +1,20 @@
 {
-    "compilerOptions": {
-      "target": "ES2022",
-      "lib": ["ES2022"],
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "noEmit": true,
-      "skipLibCheck": true,
-  
-      "baseUrl": "../../",
-      "paths": {
-        "@auth/*": ["packages/auth/*"],
-        "@db/*": ["packages/db/*"],
-        "@dci/*": ["packages/dci-engine/*"],
-        "@shared/*": ["packages/shared/*"]
-      },
-  
-      "types": ["node"]
-    },
-    "include": ["api/**/*", "../../packages/**/*"]
-  }
-  
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": true,
+
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": false,
+
+    "types": ["node"],
+
+    "baseUrl": ".",
+    "paths": {
+      "@auth/*": ["api/_lib/auth/*"],
+      "@db/*": ["api/_lib/db/*"],
+      "@dci/*": ["api/_lib/dci/*"]
+    }
+  },
+  "include": ["api/**/*"]
+}
