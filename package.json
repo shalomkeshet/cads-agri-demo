@@ -7,6 +7,12 @@
     "db:push": "dotenv -e .env.local -- drizzle-kit push"
   },
   "devDependencies": {
-    "dotenv-cli": "^11.0.0"
+    "@dotenvx/dotenvx": "^1.51.4",
+    "dotenv-cli": "^11.0.0",
+    "drizzle-kit": "^0.31.8"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.1",
+    "pg": "^8.16.3"
   }
 }

@@ -22,3 +22,25 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# dependencies
+node_modules/
+
+# env
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel/
+
+# local test artifacts
+cookies.txt
+apps/web/cookies.txt
+test.txt
+apps/web/test.txt
+upload-test.mjs
+apps/web/upload-test.mjs
+
+# build
+dist/

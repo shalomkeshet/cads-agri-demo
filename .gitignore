@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# env
+.env
+.env.*
+!.env.example
+.env.local
+
+# vercel
+.vercel/
+
+# build outputs
+dist/
+build/
+
+# misc
+cookies.txt
+test.txt
+upload-test.mjs
+apps/web/cookies.txt
+apps/web/test.txt
+apps/web/upload-test.mjs
+
+# Local env files
+.env.local
+.env.*.local
