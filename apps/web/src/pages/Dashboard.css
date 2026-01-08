@@ -1,0 +1,286 @@
+/* Dashboard.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.dash-root {
+  min-height: 100vh;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Card container */
+.dash-card {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  margin-top: 16px;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 22px;
+
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+}
+
+/* ✅ App title inside card */
+.dash-app-title {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.dash-app-title-main {
+  font-size: 40px;
+  font-weight: 900;
+  color: #111827;
+  letter-spacing: 0.2px;
+}
+
+.dash-app-title-sub {
+  margin-top: 6px;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+/* Dashboard title */
+.dash-card-title {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.dash-card-desc {
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+  margin: 0 0 18px 0;
+}
+
+.dash-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ✅ label row aligns Zone ID + tooltip bubble */
+.dash-label-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dash-label {
+  font-weight: 700;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* ✅ Input full width */
+.dash-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  outline: none;
+  font-size: 16px;
+  color: #111827;
+
+  background: #fff;
+}
+
+.dash-input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Action buttons */
+.dash-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.dash-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: #6b7280;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+
+  min-width: 140px;
+}
+
+.dash-btn:hover {
+  opacity: 0.95;
+}
+
+.dash-btn-secondary {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+
+.dash-btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+.dash-btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dash-hint {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.dash-error {
+  margin-top: 8px;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------------------------------------- */
+/* ✅ Tooltip bubble styles                  */
+/* ---------------------------------------- */
+
+.tip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tip-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 900;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tip-btn:hover {
+  background: #e5e7eb;
+}
+
+/* hidden by default */
+.tip-bubble {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+
+  min-width: 260px;
+  max-width: 320px;
+
+  background: #111827;
+  color: #fff;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  font-size: 13px;
+  line-height: 1.35;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+
+  z-index: 50;
+}
+
+/* little arrow */
+.tip-bubble::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 10px;
+
+  width: 0;
+  height: 0;
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #111827;
+}
+
+.tip-bubble-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ✅ Mobile */
+@media (max-width: 520px) {
+  .dash-card {
+    padding: 16px;
+  }
+
+  .dash-app-title-main {
+    font-size: 32px;
+  }
+
+  .dash-app-title-sub {
+    font-size: 16px;
+  }
+
+  .dash-card-title {
+    font-size: 26px;
+  }
+
+  .dash-actions {
+    flex-direction: column;
+  }
+
+  .dash-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Tooltip bubble centered on small screens */
+  .tip-bubble {
+    right: auto;
+    left: 0;
+    min-width: 240px;
+    max-width: 92vw;
+  }
+
+  .tip-bubble::before {
+    right: auto;
+    left: 10px;
+  }
+}

@@ -1,0 +1,31 @@
+.appTitleWrap {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    padding: 6px 10px;
+  }
+  
+  .appTitleMain {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: #111827;
+  }
+  
+  .appTitleSub {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 768px) {
+    .appTitleMain {
+      font-size: 24px;
+    }
+  
+    .appTitleSub {
+      font-size: 13px;
+    }
+  }
+  

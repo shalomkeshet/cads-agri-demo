@@ -1,18 +1,8 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-// import { requireActor } from "../_lib/auth/requireActor";
-// import { db } from "../_lib/db/client";
-// import { recommendations } from "../_lib/db/schema";
-// import { generateDCI } from "../_lib/dci/generate";
-// import { requireActor } from "../_lib/auth/requireActor";
-// import { db } from "../_lib/db/client";
-// import { recommendations } from "../_lib/db/schema";
-// import { generateDCI } from "../_lib/dci/generate";
 import { requireActor } from "../_lib/auth/requireActor.js";
 import { db } from "../_lib/db/client.js";
 import { recommendations } from "../_lib/db/schema.js";
 import { generateDCI } from "../_lib/dci/generate.js";
-
-
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") return res.status(405).end();
@@ -32,6 +22,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       dciScore,
       recommendationType,
       explanationSummary,
+
+      // ✅ NEW: Decision tracking defaults
+      decisionStatus: "pending",
+      decisionBy: null,
+      decisionNote: null,
+      decisionAt: null,
+      executedAt: null,
     })
     .returning();
 

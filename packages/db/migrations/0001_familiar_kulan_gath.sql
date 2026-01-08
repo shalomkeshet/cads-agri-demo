@@ -1,0 +1,1 @@
+ALTER TABLE "zones" ADD COLUMN "crop_type" text DEFAULT 'Unknown' NOT NULL;

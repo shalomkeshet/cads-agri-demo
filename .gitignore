@@ -26,3 +26,4 @@ apps/web/upload-test.mjs
 # Local env files
 .env.local
 .env.*.local
+*.bk.tsx

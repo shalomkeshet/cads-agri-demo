@@ -1,0 +1,68 @@
+/* ✅ Footer wrapper */
+.app-footer {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  /* ✅ Disclaimer block (full width) */
+  .app-footer-disclaimer {
+    margin-bottom: 12px;
+  }
+  
+  .app-footer-title {
+    color: var(--text);
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  
+  .app-footer-text {
+    max-width: 980px;
+  }
+  
+  /* ✅ Credits section: 2-column row alignment */
+  .app-footer-credits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  
+  /* ✅ Left & right column */
+  .app-footer-credits-left,
+  .app-footer-credits-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  /* ✅ Alignment exactly like your example */
+  .app-footer-credits-left {
+    text-align: left;
+  }
+  
+  .app-footer-credits-right {
+    text-align: right;
+  }
+  
+  /* ✅ Strong credit text */
+  .app-footer-credits-line {
+    color: var(--text);
+    font-weight: 700;
+  }
+  
+  /* ✅ Mobile: stack */
+  @media (max-width: 640px) {
+    .app-footer-credits {
+      grid-template-columns: 1fr;
+    }
+  
+    .app-footer-credits-right {
+      text-align: left;
+    }
+  }
+  

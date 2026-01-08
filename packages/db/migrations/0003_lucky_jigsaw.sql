@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "zones_farm_name_unique" ON "zones" USING btree ("farm_id",lower("name"));

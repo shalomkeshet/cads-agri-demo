@@ -8,6 +8,34 @@
       "when": 1767709927433,
       "tag": "0000_thick_giant_man",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1767773314946,
+      "tag": "0001_familiar_kulan_gath",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1767783886861,
+      "tag": "0002_jazzy_iron_monger",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1767785955754,
+      "tag": "0003_lucky_jigsaw",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1767810784913,
+      "tag": "0004_groovy_human_robot",
+      "breakpoints": true
     }
   ]
 }

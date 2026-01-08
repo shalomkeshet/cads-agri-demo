@@ -1,0 +1,274 @@
+/* ================================
+   ✅ Theme variables (Light/Dark)
+   ================================ */
+
+   :root {
+    --page-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+  
+    --text: #111827;
+    --muted: #6b7280;
+  
+    --status-bg: #fafafa;
+    --status-border: #e5e7eb;
+    --status-text: #111827;
+  
+    --link: #2563eb;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #0b1220;
+      --card-bg: #0f172a;
+      --border: rgba(255, 255, 255, 0.12);
+  
+      --text: #f9fafb;
+      --muted: #cbd5e1;
+  
+      --status-bg: rgba(255, 255, 255, 0.06);
+      --status-border: rgba(255, 255, 255, 0.12);
+      --status-text: #f9fafb;
+  
+      --link: #60a5fa;
+    }
+  }  
+
+
+  /* ✅ Page wrapper (optional if you're already setting this somewhere) */
+.rover-root {
+  background: var(--page-bg);
+  min-height: 100vh;
+  color: var(--text);
+}
+
+:root {
+  --pill-bg: #f9fafb;
+  --pill-border: #e5e7eb;
+  --pill-text: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pill-bg: rgba(255, 255, 255, 0.08);
+    --pill-border: rgba(255, 255, 255, 0.14);
+    --pill-text: #f9fafb;
+  }
+}
+
+/* ✅ shared badge/pill style */
+/* ✅ Always readable pill */
+.rover-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+}
+
+/* ✅ If user is actually in dark-mode rendering */
+@media (prefers-color-scheme: dark) {
+  .rover-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #f9fafb;
+  }
+}
+
+/* ✅ Title styling */
+.app-title-wrap {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.app-title-main {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: 0.3px;
+}
+
+.app-title-sub {
+  margin-top: 6px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+/* ✅ Status bar (bottom message box) */
+.rover-status {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 12px;
+
+  background: var(--status-bg);
+  border: 1px solid var(--status-border);
+  color: var(--status-text);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rover-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+/* === Responsive shell === */
+.roverWrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  
+  /* Generic card */
+  .card {
+    margin-top: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+  }
+  
+  /* === Zone selector row === */
+  .zoneControls {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .zoneSelect {
+    padding: 8px;
+    min-width: 360px;
+  }
+  
+  /* mobile: full width */
+  @media (max-width: 640px) {
+    .zoneControls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .zoneSelect {
+      min-width: unset;
+      width: 100%;
+    }
+    .zoneControls button {
+      width: 100%;
+    }
+  }
+  
+  /* === DCI Trend box === */
+  .dciTrendRow {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 12px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .sparkWrap {
+    min-width: 420px;
+  }
+  
+  @media (max-width: 640px) {
+    .sparkWrap {
+      min-width: unset;
+      width: 100%;
+    }
+  }
+  
+  /* === Decision buttons === */
+  .decisionRow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  
+  .decisionRow button {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 640px) {
+    .decisionRow {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .decisionRow button {
+      width: 100%;
+    }
+  }
+  
+  /* === Recommendation cards grid === */
+  .recsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .recsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Desktop */
+  @media (min-width: 1025px) {
+    .recsGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* === Gallery grid === */
+  .galleryGrid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  
+  @media (max-width: 1024px) {
+    .galleryGrid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .galleryGrid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  /* === Tables stack === */
+  .historyGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 1024px) {
+    .historyGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  
