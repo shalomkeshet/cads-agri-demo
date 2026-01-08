@@ -668,13 +668,13 @@ function RoverUpload() {
       const pathname = `rover-scans/${Date.now()}-${file.name}`;
       const blob = await blobUpload(pathname, file, {
         access: "public",
-        handleUploadUrl: "/api/rover/request-upload",
+        handleUploadUrl: "/api/rover?action=request-upload",
       });
 
       const blobUrl = blob.url;
 
       setStatus("Saving observation...");
-      const r2 = await fetch("/api/rover/upload-complete", {
+      const r2 = await fetch("/api/rover?action=upload-complete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ zoneId, blobUrl }),
@@ -686,7 +686,7 @@ function RoverUpload() {
       }
 
       setStatus("Generating recommendation...");
-      const r3 = await fetch("/api/recommendations/run", {
+      const r3 = await fetch("/api/recommendations?action=run", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ zoneId }),
@@ -716,7 +716,7 @@ function RoverUpload() {
     setStatus(`${action.toUpperCase()}...`);
 
     try {
-      const res = await fetch("/api/recommendations/decision", {
+      const res = await fetch("/api/recommendations?action=decision", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
