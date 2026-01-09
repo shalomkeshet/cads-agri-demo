@@ -40,14 +40,21 @@ export default function ZoneDetail() {
   return (
     <div>
       <h2>Zone Timeline</h2>
-      <p><b>Zone ID:</b> {zoneId}</p>
+      <p>
+        <b>Zone ID:</b> {zoneId}
+      </p>
       <button onClick={load}>Refresh</button>
       <p>{status}</p>
 
       <h3>Latest Observations</h3>
       {observations.map((o) => (
-        <div key={o.id} style={{ border: "1px solid #ddd", padding: 10, marginBottom: 10 }}>
-          <div><b>Uploaded:</b> {new Date(o.uploadedAt).toLocaleString()}</div>
+        <div
+          key={o.id}
+          style={{ border: "1px solid #ddd", padding: 10, marginBottom: 10 }}
+        >
+          <div>
+            <b>Uploaded:</b> {new Date(o.uploadedAt).toLocaleString()}
+          </div>
           {o.imageUrl && (
             <img src={o.imageUrl} style={{ maxWidth: 400, marginTop: 8 }} />
           )}
@@ -56,11 +63,22 @@ export default function ZoneDetail() {
 
       <h3>Recommendations</h3>
       {recommendations.map((r) => (
-        <div key={r.id} style={{ border: "1px solid #ddd", padding: 10, marginBottom: 10 }}>
-          <div><b>Type:</b> {r.recommendationType}</div>
-          <div><b>DCI:</b> {r.dciScore}</div>
-          <div><b>Why:</b> {r.explanationSummary}</div>
-          <div style={{ opacity: 0.7 }}><b>Created:</b> {new Date(r.createdAt).toLocaleString()}</div>
+        <div
+          key={r.id}
+          style={{ border: "1px solid #ddd", padding: 10, marginBottom: 10 }}
+        >
+          <div>
+            <b>Type:</b> {r.recommendationType}
+          </div>
+          <div>
+            <b>DCI:</b> {r.dciScore}
+          </div>
+          <div>
+            <b>Why:</b> {r.explanationSummary}
+          </div>
+          <div style={{ opacity: 0.7 }}>
+            <b>Created:</b> {new Date(r.createdAt).toLocaleString()}
+          </div>
         </div>
       ))}
     </div>

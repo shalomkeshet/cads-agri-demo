@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import AppFooter from "../components/AppFooter";
+import AppTitle from "../components/AppTitle";
 
 function isLikelyUuid(v: string) {
   return /^[0-9a-f-]{0,36}$/i.test(v.trim());
@@ -57,16 +58,13 @@ export default function Dashboard() {
 
   return (
     <div className="dash-root">
+      <AppTitle />
       <main className="dash-card">
         {/* ✅ Put CADS-Agri title ABOVE Dashboard (inside Dashboard card) */}
-        <div className="dash-app-title">
-          <div className="dash-app-title-main">CADS-Agri</div>
-          <div className="dash-app-title-sub">
-            (Confidence-Based Agricultural Decision System)
-          </div>
+        {/* <div className="dash-card-title">Dashboard</div> */}
+        <div className="dash-title-row">
+          <div className="dash-card-title">Dashboard</div>
         </div>
-
-        <div className="dash-card-title">Dashboard</div>
         <p className="dash-card-desc">
           Paste a Zone ID to open the timeline + recommendations view.
         </p>

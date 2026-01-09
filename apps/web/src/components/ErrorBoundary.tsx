@@ -33,7 +33,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
             color: "#7c2d12",
           }}
         >
-          <h3 style={{ marginTop: 0 }}>{this.props.title || "Something went wrong"}</h3>
+          <h3 style={{ marginTop: 0 }}>
+            {this.props.title || "Something went wrong"}
+          </h3>
           <div style={{ fontSize: 13 }}>
             The page crashed during rendering. Check console logs.
           </div>

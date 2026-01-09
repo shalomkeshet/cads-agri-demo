@@ -27,3 +27,7 @@ apps/web/upload-test.mjs
 .env.local
 .env.*.local
 *.bk.tsx
+.DS_Store
+apps/**/.DS_Store
+*.bk
+*.bk.*

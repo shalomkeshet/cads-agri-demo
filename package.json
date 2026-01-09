@@ -8,8 +8,10 @@
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.51.4",
+    "@resvg/resvg-js": "^2.6.2",
     "dotenv-cli": "^11.0.0",
-    "drizzle-kit": "^0.31.8"
+    "drizzle-kit": "^0.31.8",
+    "sharp": "^0.34.5"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.1",
