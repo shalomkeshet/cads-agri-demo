@@ -13,11 +13,11 @@ node_modules/
 
 # build outputs
 dist/
+apps/web/dist/
 build/
 
 # misc
 cookies.txt
-test.txt
 upload-test.mjs
 apps/web/cookies.txt
 apps/web/test.txt
@@ -29,5 +29,9 @@ apps/web/upload-test.mjs
 *.bk.tsx
 .DS_Store
 apps/**/.DS_Store
+*.bk
+*.bk.*
+
+# Backup files
 *.bk
 *.bk.*

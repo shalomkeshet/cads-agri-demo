@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { requireActor } from "../_lib/auth/requireActor.js";
 import { db } from "../_lib/db/client.js";
 import { zones, recommendations } from "../_lib/db/schema.js";
-import { and, eq, isNull, desc } from "drizzle-orm";
+import {eq, isNull, desc } from "drizzle-orm";
 
 // ✅ Config: DCI threshold
 const STRESS_THRESHOLD = 70;

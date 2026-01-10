@@ -335,9 +335,9 @@ function RoverUpload() {
   const [newZoneCropType, setNewZoneCropType] = useState("");
 
   // Inline edit state
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editName, setEditName] = useState("");
-  const [editCropType, setEditCropType] = useState("");
+  // const [editingId, setEditingId] = useState<string | null>(null);
+  // const [editName, setEditName] = useState("");
+  // const [editCropType, setEditCropType] = useState("");
 
   const activeZones = useMemo(
     () => zones.filter((z) => !z.archivedAt),
@@ -361,9 +361,9 @@ function RoverUpload() {
     return vals;
   }, [timeline.recommendations]);
 
-  const obsToShow = showMoreTimeline
-    ? timeline.observations.slice(0, 20)
-    : timeline.observations.slice(0, 5);
+  // const obsToShow = showMoreTimeline
+  //   ? timeline.observations.slice(0, 20)
+  //   : timeline.observations.slice(0, 5);
 
   const recsToShow = showMoreTimeline
     ? timeline.recommendations.slice(0, 20)
@@ -560,93 +560,93 @@ function RoverUpload() {
     setStatus("Zone created ✅");
   }
 
-  function startEdit(z: Zone) {
-    setEditingId(z.id);
-    setEditName(z.name);
-    setEditCropType(z.cropType);
-  }
+  // function startEdit(z: Zone) {
+  //   setEditingId(z.id);
+  //   setEditName(z.name);
+  //   setEditCropType(z.cropType);
+  // }
 
-  function cancelEdit() {
-    setEditingId(null);
-    setEditName("");
-    setEditCropType("");
-  }
+  // function cancelEdit() {
+  //   setEditingId(null);
+  //   setEditName("");
+  //   setEditCropType("");
+  // }
 
-  async function saveEdit(id: string) {
-    if (!isLoggedIn) return setStatus("Login first");
+  // async function saveEdit(id: string) {
+  //   if (!isLoggedIn) return setStatus("Login first");
 
-    const name = editName.trim();
-    const cropType = editCropType.trim();
+  //   const name = editName.trim();
+  //   const cropType = editCropType.trim();
 
-    if (!name) return setStatus("Zone name required");
-    if (!cropType) return setStatus("Crop type required");
+  //   if (!name) return setStatus("Zone name required");
+  //   if (!cropType) return setStatus("Crop type required");
 
-    setStatus("Saving changes...");
-    const res = await fetch("/api/zones/update", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, name, cropType }),
-    });
+  //   setStatus("Saving changes...");
+  //   const res = await fetch("/api/zones/update", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ id, name, cropType }),
+  //   });
 
-    const json = await res.json().catch(() => null);
+  //   const json = await res.json().catch(() => null);
 
-    if (!res.ok) {
-      setStatus(json?.error || "Zone update failed");
-      return;
-    }
+  //   if (!res.ok) {
+  //     setStatus(json?.error || "Zone update failed");
+  //     return;
+  //   }
 
-    cancelEdit();
-    await loadZones();
-    await loadZoneSummary();
-    setStatus("Updated ✅");
-  }
+  //   cancelEdit();
+  //   await loadZones();
+  //   await loadZoneSummary();
+  //   setStatus("Updated ✅");
+  // }
 
-  async function archiveZone(z: Zone) {
-    if (!isLoggedIn) return setStatus("Login first");
+  // async function archiveZone(z: Zone) {
+  //   if (!isLoggedIn) return setStatus("Login first");
 
-    const ok = window.confirm(`Archive "${z.name}"? You can unarchive later.`);
-    if (!ok) return;
+  //   const ok = window.confirm(`Archive "${z.name}"? You can unarchive later.`);
+  //   if (!ok) return;
 
-    setStatus("Archiving...");
-    const res = await fetch("/api/zones/archive", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: z.id }),
-    });
+  //   setStatus("Archiving...");
+  //   const res = await fetch("/api/zones/archive", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ id: z.id }),
+  //   });
 
-    const json = await res.json().catch(() => null);
+  //   const json = await res.json().catch(() => null);
 
-    if (!res.ok) {
-      setStatus(json?.error || "Archive failed");
-      return;
-    }
+  //   if (!res.ok) {
+  //     setStatus(json?.error || "Archive failed");
+  //     return;
+  //   }
 
-    await loadZones();
-    await loadZoneSummary();
-    setStatus("Zone archived ✅");
-  }
+  //   await loadZones();
+  //   await loadZoneSummary();
+  //   setStatus("Zone archived ✅");
+  // }
 
-  async function unarchiveZone(z: Zone) {
-    if (!isLoggedIn) return setStatus("Login first");
+  // async function unarchiveZone(z: Zone) {
+  //   if (!isLoggedIn) return setStatus("Login first");
 
-    setStatus("Unarchiving...");
-    const res = await fetch("/api/zones/unarchive", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: z.id }),
-    });
+  //   setStatus("Unarchiving...");
+  //   const res = await fetch("/api/zones/unarchive", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ id: z.id }),
+  //   });
 
-    const json = await res.json().catch(() => null);
+  //   const json = await res.json().catch(() => null);
 
-    if (!res.ok) {
-      setStatus(json?.error || "Unarchive failed");
-      return;
-    }
+  //   if (!res.ok) {
+  //     setStatus(json?.error || "Unarchive failed");
+  //     return;
+  //   }
 
-    await loadZones();
-    await loadZoneSummary();
-    setStatus("Zone unarchived ✅");
-  }
+  //   await loadZones();
+  //   await loadZoneSummary();
+  //   setStatus("Zone unarchived ✅");
+  // }
 
   async function copyToClipboard(text: string) {
     try {
