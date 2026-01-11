@@ -2,58 +2,62 @@
    ✅ Theme variables (Light/Dark)
    ================================ */
 
-:root {
-  --page-bg: #ffffff;
-  --card-bg: #ffffff;
-  --border: #e5e7eb;
-
-  --text: #111827;
-  --muted: #6b7280;
-
-  --status-bg: #fafafa;
-  --status-border: #e5e7eb;
-  --status-text: #111827;
-
-  --link: #2563eb;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --page-bg: #0b1220;
-    --card-bg: #0f172a;
-    --border: rgba(255, 255, 255, 0.12);
-
-    --text: #f9fafb;
-    --muted: #cbd5e1;
-
-    --status-bg: rgba(255, 255, 255, 0.06);
-    --status-border: rgba(255, 255, 255, 0.12);
-    --status-text: #f9fafb;
-
-    --link: #60a5fa;
+   :root {
+    --page-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+  
+    --text: #111827;
+    --muted: #6b7280;
+  
+    --status-bg: #fafafa;
+    --status-border: #e5e7eb;
+    --status-text: #111827;
+  
+    --link: #2563eb;
+  
+    --pill-bg: #f9fafb;
+    --pill-border: #e5e7eb;
+    --pill-text: #111827;
   }
-}
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #0b1220;
+      --card-bg: #0f172a;
+      --border: rgba(255, 255, 255, 0.12);
+  
+      --text: #f9fafb;
+      --muted: #cbd5e1;
+  
+      --status-bg: rgba(255, 255, 255, 0.06);
+      --status-border: rgba(255, 255, 255, 0.12);
+      --status-text: #f9fafb;
+  
+      --link: #60a5fa;
+  
+      --pill-bg: rgba(255, 255, 255, 0.08);
+      --pill-border: rgba(255, 255, 255, 0.14);
+      --pill-text: #f9fafb;
+    }
+  }  
 
 /* ✅ Page wrapper (optional if you're already setting this somewhere) */
 .rover-root {
   background: var(--page-bg);
   min-height: 100vh;
   color: var(--text);
-}
 
-:root {
-  --pill-bg: #f9fafb;
-  --pill-border: #e5e7eb;
-  --pill-text: #111827;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
-
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --pill-bg: rgba(255, 255, 255, 0.08);
     --pill-border: rgba(255, 255, 255, 0.14);
     --pill-text: #f9fafb;
   }
-}
+} */
 
 /* ✅ shared badge/pill style */
 /* ✅ Always readable pill */
@@ -67,19 +71,19 @@
   font-size: 12px;
   font-weight: 700;
 
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  color: #111827;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  color: var(--pill-text);
 }
 
 /* ✅ If user is actually in dark-mode rendering */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .rover-pill {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.14);
     color: #f9fafb;
   }
-}
+} */
 
 /* ✅ Title styling */
 .app-title-wrap {
@@ -135,9 +139,10 @@
 .card {
   margin-top: 16px;
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text);
 }
 
 /* === Zone selector row === */
@@ -150,8 +155,10 @@
 }
 
 .zoneSelect {
-  padding: 8px;
-  min-width: 360px;
+  padding: 10px;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
 }
 
 /* mobile: full width */
@@ -171,10 +178,10 @@
 
 /* === DCI Trend box === */
 .dciTrendRow {
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 12px;
-  background: #fff;
+  background: var(--card-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -183,7 +190,8 @@
 }
 
 .sparkWrap {
-  min-width: 420px;
+  width: 100%;
+  max-width: 520px;
 }
 
 @media (max-width: 640px) {
@@ -268,4 +276,19 @@
   .historyGrid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ✅ iPhone / small screen safety: prevent horizontal overflow */
+.roverWrap,
+.rover-card,
+.card,
+.dciTrendRow {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+input,
+select,
+button {
+  max-width: 100%;
 }
